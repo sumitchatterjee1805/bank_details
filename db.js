@@ -7,9 +7,8 @@ const state = {
 }
 
 exports.connect = function (done) {
-    console.log(process.env.DB_CONNECTION_URL);
     state.pool = new Pool({
-      connectionString: process.env.DB_CONNECTION_URL,
+      connectionString: process.env.DATABASE_URL,
       ssl: true
     });
     state.pool.on('error', (err, client) => {
