@@ -7,12 +7,13 @@ const state = {
 }
 
 exports.connect = function (done) {
-    state.pool = new Pool(pg_user.READ, {
-      connectionString: process.env.DATABASE_URL
+    state.pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      ssl: true
     });
 
     state.pool.on('connect', () => {
-      done();
+    done();
     });
 }
 
