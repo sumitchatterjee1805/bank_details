@@ -46,6 +46,7 @@ verify: (req, res, next) => {
      else
         res.status(401).send('False Token');
    }catch (err){
+       console.log(err)
     res.status(500).send('Server Error');
    }
 },
