@@ -6,6 +6,7 @@ const routes = express.Router({ mergeParams: true });
 routes.get('/', async (req, res) => {
     if (decodeURI(req.params.bank) && decodeURI(req.params.city) && req.query.limit && req.query.offset) {
         try {
+            console.log(decodeURI(req.params.bank));
             const response = await Bank_Branch.getDetailsForBank(decodeURI(req.params.bank), decodeURI(req.params.city), req.query.limit, req.query.offset);
             res.status(200).json({
                 result: response
