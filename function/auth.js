@@ -34,7 +34,7 @@ verify: (req, res, next) => {
   */
  console.log(req.url);
  console.log(req.baseUrl);
- console.log(req.path);
+ console.log(req.hostname);
   var verifyOptions = {
       issuer:  'Sumit.Chatterjee.Fyle',
       subject:  req.headers['email'],
