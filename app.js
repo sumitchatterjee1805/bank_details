@@ -21,7 +21,7 @@ app.post('/signin', async (req, res) => {
   const $Options = {
     issuer: 'Sumit.Chatterjee.Fyle',
     subject: req.body.email,
-    audience: req.baseUrl
+    audience: req.hostname
   }
   const token = await auth.sign(payload, $Options);
   res.setHeader('x-access-token', token);
