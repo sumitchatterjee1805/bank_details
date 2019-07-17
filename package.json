@@ -1,0 +1,17 @@
+{
+  "name": "Fyle",
+  "description": "A server to fetch ba",
+  "version": "0.0.1",
+  "author": "Sumit Chatterjee",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "node --max-old-space-size=90 --max-semi-space-size=1 app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0"
+  }
+}

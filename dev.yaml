@@ -1,0 +1,15 @@
+
+# [START app_yaml]
+runtime: nodejs8
+# env: flex
+
+env_variables:
+  ENV: 'DEV'
+  READ_USER: ''
+  READ_USER_PASSWORD: ''
+  INSTANCE_CONNECTION_NAME: ''
+  SQL_DATABASE: ''
+  WRITE_USER: ''
+  WRITE_USER_PASSWORD: ''
+  HOST: ''
+# [END app_yaml]
