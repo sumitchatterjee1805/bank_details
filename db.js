@@ -8,7 +8,7 @@ const state = {
 
 exports.connect = function (done) {
     state.pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
+      connectionString: process.env.DB_CONNECTION_URL,
       ssl: true
     });
 
