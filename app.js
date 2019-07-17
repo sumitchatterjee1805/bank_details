@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const db = require('./db');
+const env = require('dotenv').config();
 
 const app = express();
 app.use(helmet());

@@ -1,9 +1,0 @@
-
-# [START app_yaml]
-runtime: nodejs8
-# env: flex
-
-env_variables:
-  ENV: 'DEV'
-  DB_CONNECTION_URL: 'postgres://ukwxzlpcrvigus:092f438c355cf1ba9896524fe81dd45f8beece17990a9507fcc49bb06db6552a@ec2-174-129-227-128.compute-1.amazonaws.com:5432/d10gnf9rucgum'
-# [END app_yaml]
