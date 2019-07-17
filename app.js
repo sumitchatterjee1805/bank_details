@@ -12,27 +12,22 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', function(req, res) {
+app.get('/',(req, res) => {
     res.send("Test");
 });
 
-const PORT = process.env.PORT || 8080;
+db.connect((err) => {
+  if (err) {
+    console.log('Unable to connect to pg.')
+    //process.exit(1)
+  } else {
+    // Start the server
+    const PORT = process.env.PORT || 8080;
     app.listen(PORT, () => {
       console.log(`Instance started`);
+    });
+  }
 });
-// db.connect((err) => {
-//   if (err) {
-//     console.log('Unable to connect to pg.')
-//     //process.exit(1)
-//   } else {
-//     // Start the server
-//     console.log("DB connected");
-//     const PORT = process.env.PORT || 8080;
-//     app.listen(PORT, () => {
-//       console.log(`Instance started`);
-//     });
-//   }
-// });
 
 module.exports = app;
 // [END app]
