@@ -44,6 +44,7 @@ exports.query = async function (query, params) {
     const client = await state.pool.connect();
     const result = await client.query(query, params);
     client.release();
+    console.log(result);
     return result.rows;
   } catch (err) {
     return new Error(err);
