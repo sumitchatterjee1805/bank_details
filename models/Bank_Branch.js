@@ -6,7 +6,7 @@ exports.getDetailsForIfsc = async function (ifsc, limit, offset) {
 
     try {
         const result = await db.query(query, [ifsc, limit, offset]);
-        return result.rows;
+        return result;
     }
     catch (err) {
         return new Error(err);
@@ -18,7 +18,7 @@ exports.getDetailsForBank = async function (bank, city, limit, offset) {
 
     try {
         const result = await db.query(query, [bank, city, limit, offset]);
-        return result.rows;
+        return result;
     }
     catch (err) {
         return new Error(err);
