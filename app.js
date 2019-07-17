@@ -30,7 +30,6 @@ db.connect((err) => {
     //process.exit(1)
   } else {
     // Start the server
-    console.log("DB connection established");
     const PORT = process.env.PORT || 8080;
     app.listen(PORT, () => {
       console.log(`Instance started`);
