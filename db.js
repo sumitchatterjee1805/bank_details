@@ -16,15 +16,6 @@ exports.connect = function (done) {
       socketPath: process.env.INSTANCE_CONNECTION_NAME,
       charset: 'utf8mb4'
     });
-
-    state.pool.add(mysql_user.WRITE, {
-      user: process.env.WRITE_USER,
-      password: process.env.WRITE_USER_PASSWORD,
-      database: process.env.SQL_DATABASE,
-      socketPath: process.env.INSTANCE_CONNECTION_NAME,
-      charset: 'utf8mb4'
-    });
-
   done()
 }
 
