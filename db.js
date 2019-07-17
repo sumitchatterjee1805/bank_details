@@ -7,9 +7,14 @@ const state = {
 }
 
 exports.connect = function (done) {
+    console.log(process.env.DB_CONNECTION_URL);
     state.pool = new Pool({
       connectionString: process.env.DB_CONNECTION_URL,
       ssl: true
+    });
+    state.pool.on('error', (err, client) => {
+      console.error('Unexpected error on idle client', err)
+      process.exit(-1)
     });
 
     state.pool.on('connect', () => {
