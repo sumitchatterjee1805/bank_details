@@ -22,7 +22,7 @@ exports.connect = function (done) {
     done();
 }
 
-exports.get = async function (done) {
+exports.query = async function (query, params) {
   // if (!state.pool) return done(new Error('Missing database connection.'));
 
   // if (type === pg_user.READ) {
@@ -41,13 +41,11 @@ exports.get = async function (done) {
   //   });
   // }
   try {
-    const client = await state.pool.connect()
-    const result = await client.query('SELECT * FROM public.branches');
-    //const results = { 'results': (result) ? result.rows : null};
+    const client = await state.pool.connect();
+    const result = await client.query(query, params);
     client.release();
-    done(result, null);
+    return result.rows;
   } catch (err) {
-    console.error(err);
-    done(null, err);
+    return new Error(err);
   }
 }
