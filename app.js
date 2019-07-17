@@ -14,7 +14,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/',(req, res) => {
-    res.send("Test");
+    db.get(function(err, succ) {
+      if(err !== null)
+        res.send(err);
+      else
+        res,json({
+          result: JSON.stringify(succ)
+        });
+    });
 });
 
 db.connect((err) => {
