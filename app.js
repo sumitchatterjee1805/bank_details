@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/branch/:ifsc', branch);
 app.use('/bank/:bank_name/city/:city', bank);
 
-app.use('*', function (err, req, res) {
+app.use('*', function (req, res) {
   res.status(404).json({
     'message': 'File not found'
   });
