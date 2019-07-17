@@ -1,5 +1,4 @@
 'use strict';
-// [START app]
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -16,6 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//For generating JWT. Will be available in response header as 'x-access-token'
 app.post('/signin', async (req, res) => {
   const payload = req.body.payload;
   const $Options = {
@@ -28,10 +28,13 @@ app.post('/signin', async (req, res) => {
   res.status(200).send('success');
 });
 
-
+//API to GET branch details against a particular IFSC code
 app.use('/branch/:ifsc', auth.verify, branch);
+
+//API to GET details of all the branches of a articular bank in a particular city
 app.use('/bank/:bank/city/:city', auth.verify, bank);
 
+//Error hangling if path does not matches
 app.use('*', function (req, res) {
   res.status(404).json({
     'message': 'File not found'
@@ -40,8 +43,7 @@ app.use('*', function (req, res) {
 
 db.connect((err) => {
   if (err) {
-    console.log('Unable to connect to pg.')
-    //process.exit(1)
+    console.log('Unable to connect to pg.');
   } else {
     // Start the server
     const PORT = process.env.PORT || 8080;
