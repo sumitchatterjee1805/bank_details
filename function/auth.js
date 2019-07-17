@@ -32,6 +32,9 @@ verify: (req, res, next) => {
     audience: "Client_Identity" // this should be provided by client
    }  
   */
+ console.log(req.url);
+ console.log(req.baseUrl);
+ console.log(req.path);
   var verifyOptions = {
       issuer:  'Sumit.Chatterjee.Fyle',
       subject:  req.headers['email'],
