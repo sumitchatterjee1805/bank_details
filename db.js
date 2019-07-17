@@ -1,5 +1,5 @@
 'use strict';
-const {pg} = require('pg');
+const {Pool} = require('pg');
 const pg_user = require('./pg_users');
 
 const state = {
@@ -7,7 +7,7 @@ const state = {
 }
 
 exports.connect = function (done) {
-    state.pool = new pg(pg_user.READ, {
+    state.pool = new Pool(pg_user.READ, {
       connectionString: process.env.DATABASE_URL
     });
 
