@@ -1,5 +1,5 @@
 'use strict';
-const pg = require('pg');
+const {pg} = require('pg');
 const pg_user = require('./pg_users');
 
 const state = {
@@ -7,16 +7,13 @@ const state = {
 }
 
 exports.connect = function (done) {
-    state.pool = pg.createPoolCluster();
-
-    state.pool.add(pg_user.READ, {
-      user: process.env.READ_USER,
-      password: process.env.READ_USER_PASSWORD,
-      database: process.env.SQL_DATABASE,
-      socketPath: process.env.INSTANCE_CONNECTION_NAME,
-      charset: 'utf8mb4'
+    state.pool = new pg(pg_user.READ, {
+      connectionString: process.env.DATABASE_URL
     });
-  done()
+
+    state.pool.on('connect', () => {
+      done();
+    });
 }
 
 exports.get = function (type, done) {
