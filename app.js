@@ -18,7 +18,7 @@ app.get('/',(req, res) => {
 
 db.connect((err) => {
   if (err) {
-    console.log('Unable to connect to MySQL.')
+    console.log('Unable to connect to pg.')
     //process.exit(1)
   } else {
     // Start the server
