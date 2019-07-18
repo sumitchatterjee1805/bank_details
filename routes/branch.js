@@ -23,7 +23,7 @@ routes.get('/', async (req, res) => {
     }
     else
         res.status(400).json({
-            message: 'Parameters missing'
+            message: 'Parameters missing.'
         });
 });
 module.exports = routes;
