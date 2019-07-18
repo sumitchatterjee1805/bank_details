@@ -4,9 +4,12 @@ const express = require('express');
 const routes = express.Router({ mergeParams: true });
 
 routes.get('/', async (req, res) => {
-    if (req.params.ifsc && req.query.limit && req.query.offset) {
+    if (req.params.ifsc) {
         try {
-            const response = await Bank_Branch.getDetailsForIfsc(req.params.ifsc, req.query.limit, req.query.offset);
+            let limit = req.query.limit !== undefined ? req.query.limit : 1000;
+            let offset = req.query.offset !== undefined ? req.query.offset : 0;
+
+            const response = await Bank_Branch.getDetailsForIfsc(req.params.ifsc, limit, offset);
             res.status(200).json({
                 result: response
             });

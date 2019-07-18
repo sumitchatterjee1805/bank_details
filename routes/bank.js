@@ -4,9 +4,12 @@ const express = require('express');
 const routes = express.Router({ mergeParams: true });
 
 routes.get('/', async (req, res) => {
-    if (decodeURI(req.params.bank) && decodeURI(req.params.city) && req.query.limit && req.query.offset) {
+    if (decodeURI(req.params.bank) && decodeURI(req.params.city)) {
         try {
-            const response = await Bank_Branch.getDetailsForBank(decodeURI(req.params.bank), decodeURI(req.params.city), req.query.limit, req.query.offset);
+            let limit = req.query.limit !== undefined ? req.query.limit : 1000;
+            let offset = req.query.offset !== undefined ? req.query.offset : 0;
+
+            const response = await Bank_Branch.getDetailsForBank(decodeURI(req.params.bank), decodeURI(req.params.city), limit, offset);
             res.status(200).json({
                 result: response
             });
