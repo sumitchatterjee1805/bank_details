@@ -1,5 +1,5 @@
-# fyle
-API back-end for Fyle assignment created using NodeJS and PostgresSQL and deployed on Heroku server
+# bank_details
+API back-end for getting bank details created using NodeJS and PostgresSQL and deployed on Heroku server
 
 This project consists of 3 API's:
 
