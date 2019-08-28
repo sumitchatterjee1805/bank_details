@@ -1,12 +1,12 @@
 # bank_details
-API back-end for getting bank details created using NodeJS and PostgresSQL and deployed on Heroku server
+API back-end for getting bank details created using NodeJS and PostgresSQL and deployed on Google App Engine
 
 This project consists of 3 API's:
 
 1. API imitating sign-in to generate JWT
 Request:-
 HTTP-method: POST
-URL: https://quiet-sands-70755.herokuapp.com/signin
+URL: https://fyle-testing.appspot.com/signin
 Header: "Content-Type:application/json"
 Body:
 {
@@ -23,7 +23,7 @@ On success response header will contain the token as "x-access-token".
 2. API to GET details of a branch for provided IFSC code
 Request:-
 HTTP-method: GET
-URL: https://quiet-sands-70755.herokuapp.com/branch/ABHY0065001 || https://quiet-sands-70755.herokuapp.com/branch/ABHY0065001?limit=1000&offset=0
+URL: https://fyle-testing.appspot.com/branch/ABHY0065001 || https://fyle-testing.appspot.com/branch/ABHY0065001?limit=1000&offset=0
 Header: "x-access-token: eyXXXXXXXXXXXXXXXXD71GZMCoerlQ"
         "email: pqr@xyz.com"
         "user_id: 12345"
@@ -49,7 +49,7 @@ On success the body will contain result like below:
 3. API to GET details of all the branches of a particular bank in a particular city
 Request:-
 HTTP-method: GET
-URL: https://quiet-sands-70755.herokuapp.com/bank/ABHYUDAYA%20COOPERATIVE%20BANK%20LIMITED/city/MUMBAI || https://quiet-sands-70755.herokuapp.com/bank/ABHYUDAYA%20COOPERATIVE%20BANK%20LIMITED/city/MUMBAI?limit=10&offset=100
+URL: https://fyle-testing.appspot.com/bank/ABHYUDAYA%20COOPERATIVE%20BANK%20LIMITED/city/MUMBAI || https://fyle-testing.appspot.com/bank/ABHYUDAYA%20COOPERATIVE%20BANK%20LIMITED/city/MUMBAI?limit=10&offset=100
 Header: "x-access-token: eyXXXXXXXXXXXXXXXXD71GZMCoerlQ"
         "email: pqr@xyz.com"
         "user_id: 12345"
