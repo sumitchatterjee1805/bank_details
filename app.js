@@ -35,7 +35,7 @@ app.use('/branch/:ifsc', auth.verify, branch);
 app.use('/bank/:bank/city/:city', auth.verify, bank);
 
 //Error hangling if path does not matches
-app.use('*', function (req, res) {
+app.use(function (req, res) {
   res.status(404).json({
     'message': 'File not found'
   });
@@ -43,7 +43,7 @@ app.use('*', function (req, res) {
 
 db.connect((err) => {
   if (err) {
-    console.log('Unable to connect to pg.');
+    console.log('Unable to connect to pg.' + err);
   } else {
     // Start the server
     const PORT = process.env.PORT || 8080;

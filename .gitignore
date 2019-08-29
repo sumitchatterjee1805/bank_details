@@ -4,3 +4,4 @@ private.key
 public.key
 app.yaml
 .gcloudignore
+package-lock.json

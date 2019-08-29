@@ -4,11 +4,17 @@ const {Pool} = require('pg');
 let pool = null;
 
 exports.connect = function (done) {
+  try {
     pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
-      ssl: true
+      host: process.env.HOST,
+      user: process.env.USER,
+      password: process.env.PASSWORD,
+      database: process.env.DATABASE
     });
-    done();
+    done(null);
+  } catch (error) {
+    done(error);
+  }
 }
 
 exports.query = async function (query, params) {

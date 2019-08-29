@@ -1,5 +1,5 @@
 # bank_details
-API back-end for getting bank details created using NodeJS and PostgresSQL and deployed on Google App Engine
+API back-end for getting bank details created using NodeJS and PostgresSQL and deployed on Google Cloud Platform
 
 This project consists of 3 API's:
 
