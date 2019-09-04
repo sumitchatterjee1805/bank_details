@@ -25,8 +25,6 @@ Request:-
 HTTP-method: GET
 URL: https://fyle-testing.appspot.com/branch/ABHY0065001 || https://fyle-testing.appspot.com/branch/ABHY0065001?limit=1000&offset=0
 Header: "x-access-token: eyXXXXXXXXXXXXXXXXD71GZMCoerlQ"
-        "email: pqr@xyz.com"
-        "user_id: 12345"
         
 Response:
 On success the body will contain result like below:
@@ -51,8 +49,6 @@ Request:-
 HTTP-method: GET
 URL: https://fyle-testing.appspot.com/bank/ABHYUDAYA%20COOPERATIVE%20BANK%20LIMITED/city/MUMBAI || https://fyle-testing.appspot.com/bank/ABHYUDAYA%20COOPERATIVE%20BANK%20LIMITED/city/MUMBAI?limit=10&offset=100
 Header: "x-access-token: eyXXXXXXXXXXXXXXXXD71GZMCoerlQ"
-        "email: pqr@xyz.com"
-        "user_id: 12345"
         
 Response:
 On success the body will contain result like below:
