@@ -18,12 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //For generating JWT. Will be available in response header as 'x-access-token'
 app.post('/signin', async (req, res) => {
   const payload = req.body.payload;
-  const $Options = {
-    issuer: 'Sumit.Chatterjee.Fyle',
-    subject: req.body.email,
-    audience: req.hostname
-  }
-  const token = await auth.sign(payload, $Options);
+  const token = await auth.sign(payload);
   res.setHeader('x-access-token', token);
   res.status(200).send('success');
 });
